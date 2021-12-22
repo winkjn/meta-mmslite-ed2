@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SCL revision="B" version="2007" xmlns="http://www.iec.ch/61850/2003/SCL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tmw="http://www.tmw.com">
+	<Header id="KALKI SCL" nameStructure="IEDName"/>
+	<Communication>
+		<SubNetwork name="SubNetwork1" type="8-MMS">
+			<Text>SubNetwork</Text>
+			<ConnectedAP iedName="TEMPLATE_IED_" apName="P1">
+				<Address>
+					<P type="IP">192.168.84.111</P>
+					<P type="IP-SUBNET">255.255.255.0</P>
+					<P type="IP-GATEWAY">0.0.0.0</P>
+                    <P type="OSI-AP-Title">1,1,9999,1</P>
+			        <P type="OSI-AE-Qualifier">12</P>
+					<P type="OSI-TSEL">0001</P>
+					<P type="OSI-PSEL">00000001</P>
+					<P type="OSI-SSEL">0001</P>
+				</Address>
+			</ConnectedAP>
+		</SubNetwork>
+	</Communication>
+  <IED name="TEMPLATE_IED_" type="TEMPLATE_IED" manufacturer="Template" configVersion="1.0">
+    <Services>
+      <DynAssociation max="4" />
+      <GetDirectory />
+      <GetDataObjectDefinition />
+      <DataObjectDirectory />
+      <GetDataSetValue />
+      <SetDataSetValue />
+      <DataSetDirectory />
+      <ConfDataSet max="30" maxAttributes="100" />
+      <DynDataSet max="30" maxAttributes="100" />
+      <ReadWrite />
+      <ConfReportControl max="20" />
+      <GetCBValues />
+      <ReportSettings datSet="Dyn" rptID="Dyn" optFields="Dyn" bufTime="Dyn" trgOps="Dyn" intgPd="Dyn" />
+      <GSESettings />
+      <GSEDir />
+      <FileHandling />
+    </Services>
+    <AccessPoint name="P1">
+      <Server>
+        <Authentication />
+			<LDevice inst="TEST">
+				<LN0 lnType="LLN0_TYPE_1" lnClass="LLN0" inst="">
+		            <DataSet name="HVDC_SPDC_Stat">
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="OpCnt" fc="ST" />
+<!--
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="RsOpCnt" fc="SP" />
+-->
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="MoDevComF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="MoDevFlt" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="TrendTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="RTTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="HighResTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="OpCnt" fc="ST" />
+<!--
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="RsOpCnt" fc="SP" />
+-->
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="MoDevComF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="MoDevFlt" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="TrendTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="RTTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtTransF" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="HighResTransF" fc="ST" />
+		            </DataSet>
+		            <DataSet name="HVDC_SPDC_Meas">
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="PriHarRte" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="SecHarRte" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="DschCnt" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="DschCntPhRs" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="AppPaDsch" fc="MX" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="MaxPaDschPh" fc="MX" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="UhfPaDsch" fc="MX" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="PriHarRte" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="SecHarRte" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="DschCnt" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="DschCntPhRs" fc="ST" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="AppPaDsch" fc="MX" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="MaxPaDschPh" fc="MX" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="UhfPaDsch" fc="MX" />
+		            </DataSet>
+		            <DataSet name="HVDC_SPDC_Set">
+<!--
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtAmpThre1" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtAmpThre2" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtPpsThre1" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtPpsThre2" fc="SP" />
+-->
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="PlsLvlThre" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="AttSet" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="PhShift" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="CtrHz" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="BndWid" fc="SP" />
+<!--
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtAmpThre1" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtAmpThre2" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtPpsThre1" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtPpsThre2" fc="SP" />
+-->
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="PlsLvlThre" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="AttSet" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="PhShift" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="CtrHz" fc="SP" />
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="BndWid" fc="SP" />
+		            </DataSet>
+		            <DataSet name="HVDC_SPDC_Diag">
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtLvlSt" fc="ST" />
+<!--
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="1" doName="EvtTransF" fc="ST" />
+-->
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtLvlSt" fc="ST" />
+<!--
+		              <FCDA ldInst="TEST" prefix="" lnClass="SPDC" lnInst="2" doName="EvtTransF" fc="ST" />
+-->
+		            </DataSet>
+
+		            <ReportControl name="SPDCStat_brcb" datSet="HVDC_SPDC_Stat" intgPd="5000" rptID="HVDC/LLN0$SPDCStat_brcb" confRev="1" buffered="true" bufTime="1000">
+		              <TrgOps dchg="true" />
+		              <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" dataRef="true" entryID="true" configRef="true" bufOvfl="true" />
+		              <RptEnabled max="4">
+		                <ClientLN iedName="TEMPLATE_HVDC" ldInst="TEST" lnInst="1" lnClass="LLN0"/>
+		              </RptEnabled>
+		            </ReportControl>
+
+		            <ReportControl name="SPDCMeas_brcb" datSet="HVDC_SPDC_Meas" intgPd="5000" rptID="HVDC/LLN0$SPDCMeas_brcb" confRev="1" buffered="true" bufTime="1000">
+		              <TrgOps dchg="true" />
+		              <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" dataRef="true" entryID="true" configRef="true" bufOvfl="true" />
+		              <RptEnabled max="4"/>
+		            </ReportControl>
+
+		            <ReportControl name="SPDCSet_brcb" datSet="HVDC_SPDC_Set" intgPd="5000" rptID="HVDC/LLN0$SPDCSet_brcb" confRev="1" buffered="true" bufTime="1000">
+		              <TrgOps dchg="true" />
+		              <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" dataRef="true" entryID="true" configRef="true" bufOvfl="true" />
+		              <RptEnabled max="4"/>
+		            </ReportControl>
+
+		            <ReportControl name="SPDCDiag_brcb" datSet="HVDC_SPDC_Diag" intgPd="5000" rptID="HVDC/LLN0$SPDCDiag_brcb" confRev="1" buffered="true" bufTime="1000">
+		              <TrgOps dchg="true" />
+		              <OptFields seqNum="true" timeStamp="true" dataSet="true" reasonCode="true" dataRef="true" entryID="true" configRef="true" bufOvfl="true"/>
+		              <RptEnabled max="4"/>
+		            </ReportControl>
+
+					<DOI name="Mod">
+						<DAI name="ctlModel" valKind="RO">
+							<Val>status-only</Val>
+						</DAI>
+					</DOI>
+					<DOI name="NamPlt">
+						<DAI name="vendor">
+							<Val>Template</Val>
+						</DAI>
+						<DAI name="swRev">
+							<Val>1.0</Val>
+						</DAI>
+						<DAI name="d">
+							<Val>HVDC</Val>
+						</DAI>
+						<DAI name="configRev">
+							<Val>1.0</Val>
+						</DAI>
+						<DAI name="ldNs">
+							<Val>IEC 61850-7-4:2007B</Val>
+						</DAI>
+					</DOI>
+				</LN0>
+				<LN lnType="LPHD_TYPE_1" lnClass="LPHD" inst="1">
+					<DOI desc="" name="PhyNam" accessControl="">
+						<DAI name="vendor">
+							<Val>Template</Val>
+						</DAI>
+						<DAI name="swRev">
+							<Val>1.0</Val>
+						</DAI>
+						<DAI name="model">
+							<Val>HVDC</Val>
+						</DAI>
+					</DOI>
+					<DOI name="DevTime">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+				</LN>
+				<LN lnType="SPDC1" lnClass="SPDC" inst="1" prefix="" desc="">
+					<DOI name="Mod">
+						<DAI name="ctlModel" valKind="RO">
+							<Val>status-only</Val>
+						</DAI>
+					</DOI>
+					<DOI name="NamPlt">
+						<DAI name="vendor">
+							<Val>Template</Val>
+						</DAI>
+						<DAI name="swRev">
+							<Val>1.0</Val>
+						</DAI>
+						<DAI name="d">
+							<Val>HVDC</Val>
+						</DAI>
+						<DAI name="configRev">
+							<Val>1.0</Val>
+						</DAI>
+					</DOI>
+					<DOI name="SensorType">
+						<DAI name="stVal">
+							<Val>UHF</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtLvlSt">
+						<DAI name="stVal">
+							<Val>normal</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="OpCnt">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MoDevComF">
+						<DAI name="stVal">
+							<Val>false</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MoDevFlt">
+						<DAI name="stVal">
+							<Val>false</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="TrendTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="HighResTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="RTTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MeasureUnit">
+						<DAI name="stVal">
+							<Val>dbm</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="AppPaDsch">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MaxPaDschPh">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="UhfPaDsch">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="PriHarRte">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="SecHarRte">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="DschCnt">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="DschCntPhRs">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtAmpThre1">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtPpsThre1">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtAmpThre2">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtPpsThre2">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="PlsLvlThre">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="AttSet">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="PhShift">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="CtrHz">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="BndWid">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="RsOpCnt">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+				</LN>
+				<LN lnType="SPDC1" lnClass="SPDC" inst="2" prefix="" desc="">
+					<DOI name="Mod">
+						<DAI name="ctlModel" valKind="RO">
+							<Val>status-only</Val>
+						</DAI>
+					</DOI>
+					<DOI name="NamPlt">
+						<DAI name="vendor">
+							<Val>Template</Val>
+						</DAI>
+						<DAI name="swRev">
+							<Val>1.0</Val>
+						</DAI>
+						<DAI name="d">
+							<Val>HVDC</Val>
+						</DAI>
+						<DAI name="configRev">
+							<Val>1.0</Val>
+						</DAI>
+					</DOI>
+					<DOI name="SensorType">
+						<DAI name="stVal">
+							<Val>UHF</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtLvlSt">
+						<DAI name="stVal">
+							<Val>normal</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="OpCnt">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MoDevComF">
+						<DAI name="stVal">
+							<Val>false</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MoDevFlt">
+						<DAI name="stVal">
+							<Val>false</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="TrendTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="HighResTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="RTTransF">
+						<DAI name="stVal">
+							<Val>0</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MeasureUnit">
+						<DAI name="stVal">
+							<Val>dbm</Val>
+						</DAI>
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="AppPaDsch">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="MaxPaDschPh">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="UhfPaDsch">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="PriHarRte">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="SecHarRte">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="DschCnt">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="DschCntPhRs">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtAmpThre1">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtPpsThre1">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtAmpThre2">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="EvtPpsThre2">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="PlsLvlThre">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="AttSet">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="PhShift">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="CtrHz">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="BndWid">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+					<DOI name="RsOpCnt">
+						<DAI name="dataNs">
+							<Val>Template</Val>
+						</DAI>
+					</DOI>
+				</LN>
+			</LDevice>
+      </Server>
+    </AccessPoint>
+  </IED>
+	<DataTypeTemplates>
+		<LNodeType id="LPHD_TYPE_1" lnClass="LPHD">
+			<DO name="PhyNam" type="DPL_0" />
+			<DO name="PhyHealth" type="ENS_0" />
+			<DO name="Proxy" type="SPS_0" />
+			<DO name="DevTime" type="INS_7" />
+		</LNodeType>
+		<LNodeType id="LLN0_TYPE_1" lnClass="LLN0">
+			<DO name="Mod" type="ENC_0" />
+			<DO name="Beh" type="ENS_1" />
+			<DO name="Health" type="ENS_0" />
+			<DO name="NamPlt" type="LPL_1" />
+		</LNodeType>
+		<LNodeType id="SPDC1" lnClass="SPDC">
+			<DO name="Mod" type="ENC_0" />
+			<DO name="Beh" type="ENS_1" />
+			<DO name="Health" type="ENS_0" />
+			<DO name="NamPlt" type="LPL_0" />
+			<DO name="SensorType" type="INS_3"/>
+			<DO name="EvtLvlSt" type="INS_4"/>
+			<DO name="OpCnt" type="INS_5"/>
+			<DO name="MoDevComF" type="SPS_1"/>
+			<DO name="MoDevFlt" type="SPS_1"/>
+			<DO name="TrendTransF" type="INS_1"/>
+			<DO name="EvtTransF" type="INS_1"/>
+			<DO name="HighResTransF" type="INS_1"/>
+			<DO name="RTTransF" type="INS_1"/>
+			<DO name="MeasureUnit" type="INS_6"/>
+			<DO name="AppPaDsch" type="MV_1" />
+			<DO name="MaxPaDschPh" type="MV_1" />
+			<DO name="UhfPaDsch" type="MV_1" />
+			<DO name="PriHarRte" type="INS_1" />
+			<DO name="SecHarRte" type="INS_1" />
+			<DO name="DschCnt" type="INS_1" />
+			<DO name="DschCntPhRs" type="INS_1" />
+			<DO name="EvtAmpThre1" type="ASG_0" />
+			<DO name="EvtPpsThre1" type="ASG_0" />
+			<DO name="EvtAmpThre2" type="ASG_0" />
+			<DO name="EvtPpsThre2" type="ASG_0" />
+			<DO name="PlsLvlThre" type="ASG_0" />
+			<DO name="AttSet" type="ASG_0" />
+			<DO name="PhShift" type="ASG_0" />
+			<DO name="CtrHz" type="ASG_0" />
+			<DO name="BndWid" type="ASG_0" />
+			<DO name="RsOpCnt" type="ING_0" />
+			<DO name="EvtReq" type="SPG" />
+		</LNodeType>
+		<DOType id="DPL_0" cdc="DPL">
+			<DA name="vendor" bType="VisString255" fc="DC" />
+			<DA name="swRev" bType="VisString255" fc="DC" />
+			<DA name="model" bType="VisString255" fc="DC" />
+		</DOType>
+		<DOType id="INS_0" cdc="INS">
+			<DA name="stVal" bType="Enum" type="Health" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+		</DOType>
+		<DOType id="ENS_0" cdc="ENS">
+			<DA name="stVal" bType="Enum" type="Health" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+		</DOType>
+		<DOType id="ENS_1" cdc="ENS">
+			<DA name="stVal" bType="Enum" type="Mod" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+		</DOType>
+		<DOType id="INS_1" cdc="INS">
+			<DA name="stVal" bType="INT32" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="INS_2" cdc="INS">
+			<DA name="stVal" bType="Enum" type="Mod" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+		</DOType>
+		<DOType id="INS_3" cdc="INS">
+			<DA name="stVal" bType="Enum" type="SensorType" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="INS_4" cdc="INS">
+			<DA name="stVal" bType="Enum" type="EvtLvlSt_Enum" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="INS_5" cdc="INS">
+			<DA name="stVal" bType="INT32" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+		</DOType>
+		<DOType id="INS_6" cdc="INS">
+			<DA name="stVal" bType="Enum" type="MeasureUnit" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="INS_7" cdc="INS">
+			<DA name="stVal" bType="INT32" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="SPS_0" cdc="SPS">
+			<DA name="stVal" bType="BOOLEAN" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+		</DOType>
+		<DOType id="SPS_1" cdc="SPS">
+			<DA name="stVal" bType="BOOLEAN" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="INC_0" cdc="INC">
+			<DA name="stVal" bType="Enum" type="Mod" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="ctlModel" bType="Enum" type="ctlModel" fc="CF" />
+		</DOType>
+		<DOType id="ENC_0" cdc="ENC">
+			<DA name="stVal" bType="Enum" type="Mod" dchg="true" fc="ST" />
+			<DA name="q" bType="Quality" qchg="true" fc="ST" />
+			<DA name="t" bType="Timestamp" fc="ST" />
+			<DA name="ctlModel" bType="Enum" type="ctlModel" fc="CF" />
+		</DOType>
+		<DOType id="LPL_0" cdc="LPL">
+			<DA name="vendor" bType="VisString255" fc="DC" />
+			<DA name="swRev" bType="VisString255" fc="DC" />
+			<DA name="d" bType="VisString255" fc="DC" />
+			<DA name="configRev" bType="VisString255" fc="DC" />
+		</DOType>
+		<DOType id="LPL_1" cdc="LPL">
+			<DA name="vendor" bType="VisString255" fc="DC" />
+			<DA name="swRev" bType="VisString255" fc="DC" />
+			<DA name="d" bType="VisString255" fc="DC" />
+			<DA name="configRev" bType="VisString255" fc="DC" />
+			<DA name="ldNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="MV_1" cdc="MV">
+			<DA name="mag" bType="Struct" type="AnalogueValue_1" dchg="true" fc="MX" />
+			<DA name="q" bType="Quality" qchg="true" fc="MX" />
+			<DA name="t" bType="Timestamp" fc="MX" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="ASG_0" cdc="ASG">
+			<DA name="setMag" bType="Struct" type="AnalogueValue_1" dchg="true" fc="SP" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="ING_0" cdc="ING">
+			<DA name="setVal" bType="INT32" dchg="true" fc="SP" />
+			<DA name="dataNs" bType="VisString255" fc="EX" />
+		</DOType>
+		<DOType id="SPG" cdc="SPG">
+			<DA name="setVal" bType="BOOLEAN" fc="SP" />
+		</DOType>
+		<DAType id="AnalogueValue_1">
+			<BDA name="i" bType="INT32" />
+		</DAType>
+	    <EnumType id="PolQty">
+	      <EnumVal ord="1">None</EnumVal>
+	      <EnumVal ord="2">Zero sequence current</EnumVal>
+	      <EnumVal ord="3">Zero sequence voltage</EnumVal>
+	      <EnumVal ord="4">Negative sequence voltage</EnumVal>
+	      <EnumVal ord="5">Phase to Phase Voltages</EnumVal>
+	      <EnumVal ord="6">Phase to Ground Voltages</EnumVal>
+	    </EnumType>
+		<EnumType id="Health">
+			<EnumVal ord="1">Ok</EnumVal>
+			<EnumVal ord="2">Warning</EnumVal>
+			<EnumVal ord="3">Alarm</EnumVal>
+		</EnumType>
+		<EnumType id="Mod">
+			<EnumVal ord="1">on</EnumVal>
+			<EnumVal ord="2">blocked</EnumVal>
+			<EnumVal ord="3">test</EnumVal>
+			<EnumVal ord="4">test/blocked</EnumVal>
+			<EnumVal ord="5">off</EnumVal>
+		</EnumType>
+		<EnumType id="ctlModel">
+			<EnumVal ord="0">status-only</EnumVal>
+			<EnumVal ord="1">direct-with-normal-security</EnumVal>
+			<EnumVal ord="2">sbo-with-normal-security</EnumVal>
+			<EnumVal ord="3">direct-with-enhanced-security</EnumVal>
+			<EnumVal ord="4">sbo-with-enhanced-security</EnumVal>
+		</EnumType>
+		<EnumType id="SensorType">
+			<EnumVal ord="1">UHF</EnumVal>
+			<EnumVal ord="2">HFCT</EnumVal>
+			<EnumVal ord="3">TEV</EnumVal>
+		</EnumType>
+		<EnumType id="EvtLvlSt_Enum">
+			<EnumVal ord="0">normal</EnumVal>
+			<EnumVal ord="1">Level1</EnumVal>
+			<EnumVal ord="2">Level2</EnumVal>
+		</EnumType>
+		<EnumType id="MeasureUnit">
+			<EnumVal ord="0">dbm</EnumVal>
+			<EnumVal ord="1">pC</EnumVal>
+		</EnumType>
+	</DataTypeTemplates>
+</SCL>

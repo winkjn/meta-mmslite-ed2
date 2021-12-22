@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<STACK_CFG>
+		<MMS>
+		<Max_Mms_Pdu_Length>65535</Max_Mms_Pdu_Length>
+		<Max_Calling_Connections>0</Max_Calling_Connections>
+		<Max_Called_Connections>4</Max_Called_Connections>
+		</MMS>
+		<Network>
+		<Clnp>
+		<Lifetime>50</Lifetime>
+		<Lifetime_Decrement>1</Lifetime_Decrement>
+		<Cfg_Timer>120</Cfg_Timer>
+		<Esh_Delay>5</Esh_Delay>
+		<Local_NSAP>49 00 01 53 49 53 43 09 01 01</Local_NSAP>
+		</Clnp>
+		</Network>
+		<Transport>
+		<Tp4>
+		<Max_Tpdu_Length>1024</Max_Tpdu_Length>
+		<Max_Remote_Cdt>4</Max_Remote_Cdt>
+		<Local_Cdt>4</Local_Cdt>
+		<Max_Spdu_Outstanding>4</Max_Spdu_Outstanding>
+		<Window_Time>10</Window_Time>
+		<Inactivity_Time>120</Inactivity_Time>
+		<Retransmission_Time>10</Retransmission_Time>
+		<Max_Transmissions>2</Max_Transmissions>
+		<Ak_Delay>2</Ak_Delay>
+		</Tp4>
+		<Tcp>
+		<Rfc1006_Max_Tpdu_Len>1024</Rfc1006_Max_Tpdu_Len>
+		<Rfc1006_Max_Spdu_Outstanding>50</Rfc1006_Max_Spdu_Outstanding>
+		</Tcp>
+		</Transport>
+		<NetworkAddressing>
+		<LocalAddressList>
+         <LocalAddress>
+         <AR_Name>local1</AR_Name>
+         <AP_Title>1 1 9999 1</AP_Title>
+         <AE_Qualifier>12</AE_Qualifier>
+         <Psel>00000001</Psel>
+         <Ssel>0001</Ssel>
+         <Tsel>0001</Tsel>
+         <TransportType>TCP</TransportType>
+         <!-- TP4 or TCP or TPX -->
+         </LocalAddress>
+		</LocalAddressList>
+		<RemoteAddressList>
+         <RemoteAddress>
+	       <AR_Name>remote00</AR_Name>
+	       <AP_Title>1 1 9999 1</AP_Title>
+	       <AE_Qualifier>12</AE_Qualifier>
+	       <Psel>00000001</Psel>
+	       <Ssel>0001</Ssel>
+	       <Tsel>0001</Tsel>
+	       <NetAddr Type="IPADDR">192.168.0.120</NetAddr>
+         </RemoteAddress>
+		</RemoteAddressList>
+		</NetworkAddressing>
+		</STACK_CFG>
